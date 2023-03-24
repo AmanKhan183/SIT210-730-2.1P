@@ -1,0 +1,80 @@
+// Define the LED pin and push button pin
+int ledPin = D7;
+int buttonPin = D2;
+
+// Initialize the LED pin as an output
+void setup() 
+{
+  pinMode(buttonPin, INPUT_PULLDOWN);
+  pinMode(ledPin, OUTPUT);
+}
+
+// Blink the LED when the push button is pressed
+void loop() 
+{
+    if (digitalRead(buttonPin) == HIGH)
+    {
+        blinkAman(ledPin);
+    }
+    else
+    {
+        digitalWrite(ledPin, LOW);
+    }    
+}
+
+void blinkDot(int ledPin) // To blink a dot in Morse Code
+{
+    digitalWrite(ledPin, HIGH);
+    delay(200);
+    digitalWrite(ledPin, LOW);
+    delay(200);
+}
+
+void blinkDash(int ledPin) // To blink a dash in Morse Code
+{
+    digitalWrite(ledPin, HIGH);
+    delay(500);
+    digitalWrite(ledPin, LOW);
+    delay(250);
+}
+
+void blinkA(int ledPin) //Blink Letter "A"
+{
+    blinkDot(ledPin);
+    delay(100);
+    blinkDash(ledPin);
+    delay(250);
+}
+
+void blinkM(int ledPin)  //Blink Letter "M"
+{
+    blinkDash(ledPin);
+    delay(200);
+    blinkDash(ledPin);
+    delay(200);
+}
+
+void blinkN(int ledPin)  //Blink Letter "N"
+{
+    blinkDash(ledPin);
+    delay(200);
+    blinkDot(ledPin);
+    delay(200);
+}
+
+void blinkAman(int ledPin)
+{
+    blinkA(ledPin);
+    delay(200);
+    
+    blinkM(ledPin);
+    delay(200);
+    
+    blinkA(ledPin);
+    delay(200);
+    
+    blinkN(ledPin);
+    delay(200);
+}
+
+
